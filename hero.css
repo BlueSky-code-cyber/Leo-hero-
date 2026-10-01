@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #a77b61;
+}
+
+/* nav style */
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.header .nav {
+  background: #efe1d2;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  padding: 1rem;
+}
+
+.header .nav .nav-logo {
+  width: 80px;
+}
+
+.header .nav .nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.header .nav .nav-list .nav-item {
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 4px;
+  overflow: hidden;
+}
+
+.header .nav .nav-list .nav-item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  background: #a77b61;
+  bottom: 0;
+  left: -100%;
+  transition: all 0.4s;
+}
+
+.header .nav .nav-list .nav-item:hover::after {
+  left: 0;
+}
+
+.header .nav .nav-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.header .nav .nav-icons .icon {
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #a77b61;
+}
+
+/* search box */
+
+.header .nav .search-box {
+  position: relative;
+}
+
+.header .nav .search-box .search-input {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+
+  border: none;
+  border-radius: 24px;
+  background: transparent;
+  outline: none;
+  padding: 0.6rem;
+  display: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.header .nav .search-box .search-input.add-box {
+  display: block;
+  border: 1px solid #a77b61;
+  width: 220px;
+  height: 35px;
+}
+
+.header .nav .search-box #search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.header .nav .search-box #search-icon.add-box {
+  display: none;
+}
+
+.header .nav .search-box #clos-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  display: none;
+}
+
+.header .nav .search-box #clos-icon.add-box {
+  display: block;
+}
+
+/* menu burger */
+.header .nav .burger-list {
+  display: none;
+  transform: rotate(180deg);
+  font-size: 1.1rem;
+  color: #a77b61;
+  cursor: pointer;
+}
+
+.header .nav .blur-space {
+  display: none;
+}
+
+/* hero styles */
+
+.header .hero {
+  height: 100vh;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167, 123, 97, 0.4),
+      rgba(201, 165, 142, 0.35),
+      rgba(248, 241, 232, 0.05)
+    ),
+    url("./jazmin-wong-qDBxfh5Idak-unsplash.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero .hero-details {
+  padding: 4rem;
+  margin-left: 8rem;
+}
+
+.hero .hero-details .hero-title {
+  color: #f8f1e8;
+  font-size: 6rem;
+  font-weight: 400;
+}
+
+.hero .hero-details .hero-descrip {
+  margin-top: 1.5rem;
+  color: #efe1d2;
+  font-size: 1.5rem;
+}
+
+.hero .hero-details .hero-btn {
+  display: block;
+  margin-top: 2rem;
+  padding: 16px 42px;
+  border-radius: 32px;
+  border: none;
+  color: #efe1d2;
+  background: #a77b61;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.22),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.18);
+  transition: all 0.4s;
+}
+
+.hero .hero-details .hero-btn:hover {
+  transform: translateX(10px);
+}
+
+/* responsive */
+
+@media screen and (max-width: 768px) {
+  .header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header .nav .nav-list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    right: -100%;
+    top: 0;
+    background: #efe1d2;
+    height: 100vh;
+    z-index: 100;
+    transition: all 0.8s;
+  }
+
+  .header .nav .blur-space {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    transition: all 0.8s;
+  }
+
+  .header .nav .burger-list {
+    display: block;
+    z-index: 1000;
+  }
+
+  .header .nav .nav-list.open-menu {
+    right: 0;
+  }
+
+  .header .nav .blur-space.open-menu {
+    left: 0;
+  }
+
+  .header .nav .nav-logo {
+    width: 65px;
+  }
+
+  .header .nav .search-box .search-input.add-box {
+    width: 170px;
+    height: 32px;
+  }
+
+  .header .hero {
+    background-position: 56% center;
+  }
+
+  .hero .hero-details {
+    margin-left: 2rem;
+    padding: 0 1.5rem;
+    padding-top: 15vh;
+  }
+
+  .hero .hero-details .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero .hero-details .hero-descrip {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .hero .hero-details .hero-btn {
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    padding: 10px 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header .nav .nav-logo {
+    width: 2.8rem;
+  }
+
+  .header .nav .nav-icons .icon {
+    font-size: 0.65rem;
+  }
+
+  .header .nav .search-box .search-input.add-box {
+    width: 86px;
+    height: 20px;
+  }
+
+  .hero .hero-details {
+    margin: 0;
+    padding-top: 20vh;
+  }
+
+  .hero .hero-details .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero .hero-details .hero-descrip {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+
+  .hero .hero-details .hero-btn {
+    margin-top: 6rem;
+    font-size: 0.8rem;
+    padding: 8px 26px;
+  }
+}
